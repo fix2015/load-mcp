@@ -1,0 +1,861 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-04-02",
+  "sources": [
+    {
+      "id": "official",
+      "repo": "modelcontextprotocol/servers",
+      "path": "src",
+      "type": "official",
+      "url": "https://github.com/modelcontextprotocol/servers"
+    },
+    {
+      "id": "community",
+      "repo": "punkpeye/awesome-mcp-servers",
+      "path": "",
+      "type": "curated",
+      "url": "https://github.com/punkpeye/awesome-mcp-servers"
+    },
+    {
+      "id": "third-party",
+      "repo": "various",
+      "path": "",
+      "type": "third-party",
+      "url": "https://github.com/topics/mcp-server"
+    }
+  ],
+  "servers": [
+    {
+      "name": "filesystem",
+      "description": "Secure file operations with configurable access controls. Read, write, move, and search files and directories.",
+      "tags": ["filesystem", "utility"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed/dir"]
+      }
+    },
+    {
+      "name": "github",
+      "description": "GitHub API integration for repository management, file operations, issues, pull requests, branches, and more.",
+      "tags": ["git", "productivity", "api"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-github",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-github"],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "gitlab",
+      "description": "GitLab API integration for project management, merge requests, issues, and CI/CD pipelines.",
+      "tags": ["git", "productivity", "api"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-gitlab",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gitlab",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-gitlab"],
+        "env": {
+          "GITLAB_PERSONAL_ACCESS_TOKEN": "<your-token>",
+          "GITLAB_API_URL": "https://gitlab.com/api/v4"
+        }
+      }
+    },
+    {
+      "name": "slack",
+      "description": "Slack workspace integration for reading channels, posting messages, managing threads, and user lookups.",
+      "tags": ["communication", "productivity"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-slack",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-slack"],
+        "env": {
+          "SLACK_BOT_TOKEN": "xoxb-your-token",
+          "SLACK_TEAM_ID": "T00000000"
+        }
+      }
+    },
+    {
+      "name": "postgres",
+      "description": "PostgreSQL database integration with read-only access, schema inspection, and query execution.",
+      "tags": ["database"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-postgres postgresql://localhost/mydb",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/mydb"]
+      }
+    },
+    {
+      "name": "mysql",
+      "description": "MySQL database integration with configurable read/write access and schema inspection.",
+      "tags": ["database"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @benborla29/mcp-server-mysql",
+      "repo_url": "https://github.com/benborla29/mcp-server-mysql",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@benborla29/mcp-server-mysql"],
+        "env": {
+          "MYSQL_HOST": "127.0.0.1",
+          "MYSQL_USER": "root",
+          "MYSQL_PASSWORD": "",
+          "MYSQL_DATABASE": "mydb"
+        }
+      }
+    },
+    {
+      "name": "sqlite",
+      "description": "SQLite database integration for querying, schema inspection, and data analysis with built-in analytics.",
+      "tags": ["database"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-sqlite /path/to/database.db",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-sqlite", "/path/to/database.db"]
+      }
+    },
+    {
+      "name": "redis",
+      "description": "Redis database integration for key-value operations, querying, and cache management.",
+      "tags": ["database"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-redis redis://localhost:6379",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/redis",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-redis", "redis://localhost:6379"]
+      }
+    },
+    {
+      "name": "docker",
+      "description": "Docker container management including listing, starting, stopping containers, and managing images.",
+      "tags": ["devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-docker",
+      "repo_url": "https://github.com/ckreiling/mcp-server-docker",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-docker"]
+      }
+    },
+    {
+      "name": "kubernetes",
+      "description": "Kubernetes cluster management for pods, deployments, services, and cluster operations.",
+      "tags": ["devops", "cloud"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-kubernetes",
+      "repo_url": "https://github.com/Flux159/mcp-server-kubernetes",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-kubernetes"]
+      }
+    },
+    {
+      "name": "aws-kb-retrieval",
+      "description": "AWS Knowledge Base retrieval using Bedrock Agent Runtime for RAG-based queries.",
+      "tags": ["cloud", "ai"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-aws-kb-retrieval",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/aws-kb-retrieval",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-aws-kb-retrieval"],
+        "env": {
+          "AWS_ACCESS_KEY_ID": "<your-key>",
+          "AWS_SECRET_ACCESS_KEY": "<your-secret>",
+          "AWS_REGION": "us-east-1"
+        }
+      }
+    },
+    {
+      "name": "google-drive",
+      "description": "Google Drive integration for searching, reading, and listing files across your Google Drive.",
+      "tags": ["storage", "productivity"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-gdrive",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-gdrive"]
+      }
+    },
+    {
+      "name": "notion",
+      "description": "Notion workspace integration for searching, reading, creating, and updating pages and databases.",
+      "tags": ["productivity"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-notion",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/notion",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-notion"],
+        "env": {
+          "NOTION_API_TOKEN": "<your-integration-token>"
+        }
+      }
+    },
+    {
+      "name": "linear",
+      "description": "Linear project management integration for issues, projects, and team workflows.",
+      "tags": ["productivity"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-linear",
+      "repo_url": "https://github.com/jerhadf/linear-mcp-server",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-linear"],
+        "env": {
+          "LINEAR_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "jira",
+      "description": "Atlassian Jira integration for managing issues, projects, sprints, and workflows.",
+      "tags": ["productivity"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-jira",
+      "repo_url": "https://github.com/smithery-ai/mcp-server-jira",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-jira"],
+        "env": {
+          "JIRA_URL": "https://your-domain.atlassian.net",
+          "JIRA_EMAIL": "<your-email>",
+          "JIRA_API_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "figma",
+      "description": "Figma design platform integration for reading files, components, styles, and design tokens.",
+      "tags": ["design", "productivity"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @anthropic/mcp-server-figma",
+      "repo_url": "https://github.com/anthropics/mcp-server-figma",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@anthropic/mcp-server-figma"],
+        "env": {
+          "FIGMA_ACCESS_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "brave-search",
+      "description": "Brave Search API integration for web and local search with privacy-focused results.",
+      "tags": ["search", "api"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-brave-search",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+        "env": {
+          "BRAVE_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "puppeteer",
+      "description": "Browser automation with Puppeteer for web scraping, screenshots, form filling, and JavaScript execution.",
+      "tags": ["browser", "api"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-puppeteer",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
+      }
+    },
+    {
+      "name": "playwright",
+      "description": "Browser automation with Playwright for testing, scraping, screenshots, and multi-browser support.",
+      "tags": ["browser", "api"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @anthropic/mcp-server-playwright",
+      "repo_url": "https://github.com/anthropics/mcp-server-playwright",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@anthropic/mcp-server-playwright"]
+      }
+    },
+    {
+      "name": "sentry",
+      "description": "Sentry error tracking integration for querying issues, events, and project analytics.",
+      "tags": ["monitoring", "devops"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-sentry",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sentry",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-sentry"],
+        "env": {
+          "SENTRY_AUTH_TOKEN": "<your-auth-token>",
+          "SENTRY_ORG": "<your-org>"
+        }
+      }
+    },
+    {
+      "name": "datadog",
+      "description": "Datadog monitoring integration for metrics, logs, dashboards, and incident management.",
+      "tags": ["monitoring", "devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-datadog",
+      "repo_url": "https://github.com/winor30/mcp-server-datadog",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-datadog"],
+        "env": {
+          "DD_API_KEY": "<your-api-key>",
+          "DD_APP_KEY": "<your-app-key>"
+        }
+      }
+    },
+    {
+      "name": "stripe",
+      "description": "Stripe payment platform integration for managing customers, charges, subscriptions, and invoices.",
+      "tags": ["payment", "api"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-stripe",
+      "repo_url": "https://github.com/stripe/mcp-server-stripe",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-stripe"],
+        "env": {
+          "STRIPE_SECRET_KEY": "sk_test_..."
+        }
+      }
+    },
+    {
+      "name": "twilio",
+      "description": "Twilio communications integration for sending SMS, making calls, and managing phone numbers.",
+      "tags": ["communication", "api"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-twilio",
+      "repo_url": "https://github.com/twilio/mcp-server-twilio",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-twilio"],
+        "env": {
+          "TWILIO_ACCOUNT_SID": "<your-sid>",
+          "TWILIO_AUTH_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "sendgrid",
+      "description": "SendGrid email integration for sending emails, managing templates, and tracking delivery.",
+      "tags": ["communication", "api"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-sendgrid",
+      "repo_url": "https://github.com/Garoth/mcp-server-sendgrid",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-sendgrid"],
+        "env": {
+          "SENDGRID_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "google-maps",
+      "description": "Google Maps Platform integration for geocoding, directions, place search, and distance calculations.",
+      "tags": ["maps", "api"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-google-maps",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-maps",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-google-maps"],
+        "env": {
+          "GOOGLE_MAPS_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "weather",
+      "description": "National Weather Service API integration for forecasts, alerts, and current conditions (US only).",
+      "tags": ["maps", "utility", "api"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-weather",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/weather",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-weather"]
+      }
+    },
+    {
+      "name": "memory",
+      "description": "Knowledge graph-based persistent memory for maintaining context across conversations using entity relations.",
+      "tags": ["ai", "utility"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-memory",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-memory"]
+      }
+    },
+    {
+      "name": "sequential-thinking",
+      "description": "Dynamic problem-solving through sequential thought chains with branching and revision capabilities.",
+      "tags": ["ai", "utility"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-sequential-thinking",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+      }
+    },
+    {
+      "name": "everything",
+      "description": "MCP reference server that demonstrates all protocol features including tools, resources, and prompts.",
+      "tags": ["utility"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-everything",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-everything"]
+      }
+    },
+    {
+      "name": "fetch",
+      "description": "HTTP fetch server for making web requests, retrieving web content, and converting HTML to markdown.",
+      "tags": ["api", "browser"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-fetch",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-fetch"]
+      }
+    },
+    {
+      "name": "time",
+      "description": "Time and timezone utilities for getting current time, converting between timezones, and time calculations.",
+      "tags": ["utility"],
+      "source": "official",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-time",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-time"]
+      }
+    },
+    {
+      "name": "calculator",
+      "description": "Mathematical expression evaluator supporting arithmetic, algebra, calculus, and unit conversions.",
+      "tags": ["utility"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-calculator",
+      "repo_url": "https://github.com/modelcontextprotocol/servers/tree/main/src/calculator",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-calculator"]
+      }
+    },
+    {
+      "name": "discord",
+      "description": "Discord bot integration for reading messages, managing channels, and interacting with Discord servers.",
+      "tags": ["communication"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @modelcontextprotocol/server-discord",
+      "repo_url": "https://github.com/v-3/mcp-server-discord",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-discord"],
+        "env": {
+          "DISCORD_TOKEN": "<your-bot-token>"
+        }
+      }
+    },
+    {
+      "name": "telegram",
+      "description": "Telegram Bot API integration for sending messages, managing groups, and handling updates.",
+      "tags": ["communication"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-telegram",
+      "repo_url": "https://github.com/nicepkg/mcp-server-telegram",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-telegram"],
+        "env": {
+          "TELEGRAM_BOT_TOKEN": "<your-bot-token>"
+        }
+      }
+    },
+    {
+      "name": "mongodb",
+      "description": "MongoDB database integration for querying collections, managing documents, and aggregation pipelines.",
+      "tags": ["database"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-mongodb",
+      "repo_url": "https://github.com/kiliczsh/mcp-mongo-server",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-mongodb"],
+        "env": {
+          "MONGODB_URI": "mongodb://localhost:27017/mydb"
+        }
+      }
+    },
+    {
+      "name": "elasticsearch",
+      "description": "Elasticsearch integration for full-text search, indexing, and analytics across your data.",
+      "tags": ["database", "search"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-elasticsearch",
+      "repo_url": "https://github.com/elastic/mcp-server-elasticsearch",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-elasticsearch"],
+        "env": {
+          "ELASTICSEARCH_URL": "http://localhost:9200"
+        }
+      }
+    },
+    {
+      "name": "supabase",
+      "description": "Supabase platform integration for database queries, auth management, storage, and edge functions.",
+      "tags": ["database", "cloud", "api"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-supabase",
+      "repo_url": "https://github.com/supabase/mcp-server-supabase",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-supabase"],
+        "env": {
+          "SUPABASE_URL": "<your-project-url>",
+          "SUPABASE_SERVICE_ROLE_KEY": "<your-service-role-key>"
+        }
+      }
+    },
+    {
+      "name": "vercel",
+      "description": "Vercel platform integration for managing deployments, projects, domains, and environment variables.",
+      "tags": ["cloud", "devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-vercel",
+      "repo_url": "https://github.com/vercel/mcp-server-vercel",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-vercel"],
+        "env": {
+          "VERCEL_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "cloudflare",
+      "description": "Cloudflare integration for managing Workers, KV, R2 storage, D1 databases, and DNS records.",
+      "tags": ["cloud", "devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y @cloudflare/mcp-server-cloudflare",
+      "repo_url": "https://github.com/cloudflare/mcp-server-cloudflare",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "@cloudflare/mcp-server-cloudflare"],
+        "env": {
+          "CLOUDFLARE_API_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "grafana",
+      "description": "Grafana integration for querying dashboards, data sources, alerts, and visualization panels.",
+      "tags": ["monitoring", "devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-grafana",
+      "repo_url": "https://github.com/grafana/mcp-server-grafana",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-grafana"],
+        "env": {
+          "GRAFANA_URL": "http://localhost:3000",
+          "GRAFANA_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "prometheus",
+      "description": "Prometheus metrics integration for querying time-series data, alerts, and monitoring targets.",
+      "tags": ["monitoring", "devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-prometheus",
+      "repo_url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-prometheus"],
+        "env": {
+          "PROMETHEUS_URL": "http://localhost:9090"
+        }
+      }
+    },
+    {
+      "name": "neo4j",
+      "description": "Neo4j graph database integration for Cypher queries, node/relationship management, and graph analytics.",
+      "tags": ["database"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-neo4j",
+      "repo_url": "https://github.com/neo4j-contrib/mcp-neo4j",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-neo4j"],
+        "env": {
+          "NEO4J_URI": "bolt://localhost:7687",
+          "NEO4J_USER": "neo4j",
+          "NEO4J_PASSWORD": "<your-password>"
+        }
+      }
+    },
+    {
+      "name": "google-calendar",
+      "description": "Google Calendar integration for creating, reading, updating events, and managing calendars.",
+      "tags": ["productivity", "api"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-google-calendar",
+      "repo_url": "https://github.com/nspady/google-calendar-mcp",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-google-calendar"]
+      }
+    },
+    {
+      "name": "todoist",
+      "description": "Todoist task management integration for creating, updating, and organizing tasks and projects.",
+      "tags": ["productivity"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-todoist",
+      "repo_url": "https://github.com/abhiz123/todoist-mcp-server",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-todoist"],
+        "env": {
+          "TODOIST_API_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "obsidian",
+      "description": "Obsidian vault integration for searching, reading, creating notes, and managing knowledge bases.",
+      "tags": ["productivity", "filesystem"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-obsidian",
+      "repo_url": "https://github.com/smithery-ai/mcp-obsidian",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-obsidian"],
+        "env": {
+          "OBSIDIAN_VAULT_PATH": "/path/to/vault"
+        }
+      }
+    },
+    {
+      "name": "raygun",
+      "description": "Raygun error and performance monitoring integration for crash reporting and real user monitoring.",
+      "tags": ["monitoring"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-raygun",
+      "repo_url": "https://github.com/MindscapeHQ/mcp-server-raygun",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-raygun"],
+        "env": {
+          "RAYGUN_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "shopify",
+      "description": "Shopify e-commerce integration for managing products, orders, customers, and store configuration.",
+      "tags": ["api", "payment"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-shopify",
+      "repo_url": "https://github.com/shopify/mcp-server-shopify",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-shopify"],
+        "env": {
+          "SHOPIFY_ACCESS_TOKEN": "<your-token>",
+          "SHOPIFY_STORE_URL": "your-store.myshopify.com"
+        }
+      }
+    },
+    {
+      "name": "airtable",
+      "description": "Airtable integration for reading, creating, updating records and managing bases and tables.",
+      "tags": ["productivity", "database"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-airtable",
+      "repo_url": "https://github.com/felores/airtable-mcp",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-airtable"],
+        "env": {
+          "AIRTABLE_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "confluence",
+      "description": "Atlassian Confluence integration for searching, reading, and creating wiki pages and spaces.",
+      "tags": ["productivity"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-confluence",
+      "repo_url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-confluence"],
+        "env": {
+          "CONFLUENCE_URL": "https://your-domain.atlassian.net/wiki",
+          "CONFLUENCE_EMAIL": "<your-email>",
+          "CONFLUENCE_API_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "pagerduty",
+      "description": "PagerDuty integration for managing incidents, on-call schedules, and escalation policies.",
+      "tags": ["monitoring", "devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-pagerduty",
+      "repo_url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-pagerduty"],
+        "env": {
+          "PAGERDUTY_API_KEY": "<your-api-key>"
+        }
+      }
+    },
+    {
+      "name": "circleci",
+      "description": "CircleCI integration for managing pipelines, workflows, jobs, and build artifacts.",
+      "tags": ["devops"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-circleci",
+      "repo_url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-circleci"],
+        "env": {
+          "CIRCLECI_TOKEN": "<your-token>"
+        }
+      }
+    },
+    {
+      "name": "terraform",
+      "description": "Terraform/OpenTofu integration for managing infrastructure as code, plans, and state files.",
+      "tags": ["devops", "cloud"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-terraform",
+      "repo_url": "https://github.com/punkpeye/awesome-mcp-servers",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-terraform"]
+      }
+    },
+    {
+      "name": "bigquery",
+      "description": "Google BigQuery integration for running SQL queries, managing datasets, and exploring table schemas.",
+      "tags": ["database", "cloud"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-bigquery",
+      "repo_url": "https://github.com/LucasHild/mcp-server-bigquery",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-bigquery"],
+        "env": {
+          "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/credentials.json",
+          "BIGQUERY_PROJECT_ID": "<your-project-id>"
+        }
+      }
+    },
+    {
+      "name": "snowflake",
+      "description": "Snowflake data warehouse integration for SQL queries, schema exploration, and data management.",
+      "tags": ["database", "cloud"],
+      "source": "community",
+      "compatible": ["claude-code", "cursor"],
+      "install_command": "npx -y mcp-server-snowflake",
+      "repo_url": "https://github.com/datawiz168/mcp-snowflake-service",
+      "config_example": {
+        "command": "npx",
+        "args": ["-y", "mcp-server-snowflake"],
+        "env": {
+          "SNOWFLAKE_ACCOUNT": "<your-account>",
+          "SNOWFLAKE_USER": "<your-user>",
+          "SNOWFLAKE_PASSWORD": "<your-password>"
+        }
+      }
+    }
+  ]
+}
